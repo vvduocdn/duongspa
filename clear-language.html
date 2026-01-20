@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear Language Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background: white;
+            color: #667eea;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            font-weight: 600;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        #status {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Clear Language Selection</h1>
+        <p>Click the button below to reset language selection and see the modal again</p>
+        <button onclick="clearAndRedirect()">Clear & Go to Homepage</button>
+        <button onclick="checkStorage()">Check Current Language</button>
+        <div id="status"></div>
+    </div>
+
+    <script>
+        function clearAndRedirect() {
+            localStorage.removeItem('duongspa_language');
+            document.getElementById('status').innerHTML = '✅ Language cleared! Redirecting...';
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1000);
+        }
+
+        function checkStorage() {
+            const saved = localStorage.getItem('duongspa_language');
+            if (saved) {
+                document.getElementById('status').innerHTML = `Current language: <strong>${saved}</strong>`;
+            } else {
+                document.getElementById('status').innerHTML = 'No language selected yet';
+            }
+        }
+    </script>
+</body>
+</html>

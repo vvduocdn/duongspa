@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test i18n</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .lang-btn {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border: 2px solid #333;
+            background: white;
+        }
+        .lang-btn.active {
+            background: #4CAF50;
+            color: white;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #debug {
+            background: #f5f5f5;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test i18n System</h1>
+
+    <div>
+        <button class="lang-btn" data-lang="vi">VI</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ko">KO</button>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Translations:</h2>
+        <p><strong>Nav Home:</strong> <span data-i18n="nav.home">Loading...</span></p>
+        <p><strong>Nav Services:</strong> <span data-i18n="nav.services">Loading...</span></p>
+        <p><strong>Hero Title:</strong> <span data-i18n="hero.title">Loading...</span></p>
+        <p><strong>Hero Subtitle:</strong> <span data-i18n="hero.subtitle">Loading...</span></p>
+        <p><strong>About Title:</strong> <span data-i18n="about.title">Loading...</span></p>
+    </div>
+
+    <div id="debug">
+        <strong>Debug Info:</strong>
+        <div id="debug-content">Waiting for initialization...</div>
+    </div>
+
+    <script>
+        // Simple i18n test
+        const TestI18n = {
+            currentLang: 'vi',
+            translations: {},
+            supportedLanguages: ['vi', 'en', 'ko'],
+
+            async init() {
+                this.log('Starting i18n initialization...');
+                await this.loadTranslations();
+                this.log('Translations loaded');
+                this.applyTranslations();
+                this.setupButtons();
+            },
+
+            log(msg, data = null) {
+                const debugDiv = document.getElementById('debug-content');
+                const timestamp = new Date().toLocaleTimeString();
+                let logMsg = `[${timestamp}] ${msg}`;
+                if (data) {
+                    logMsg += '\n' + JSON.stringify(data, null, 2);
+                }
+                debugDiv.textContent += '\n' + logMsg;
+                console.log(msg, data);
+            },
+
+            async loadTranslations() {
+                try {
+                    for (const lang of this.supportedLanguages) {
+                        const response = await fetch(`locales/${lang}.json`);
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        const data = await response.json();
+                        this.translations[lang] = data;
+                        this.log(`Loaded ${lang}:`, {
+                            keys: Object.keys(data),
+                            sample: data.nav
+                        });
+                    }
+                } catch (error) {
+                    this.log('ERROR loading translations:', error.message);
+                }
+            },
+
+            t(key) {
+                const keys = key.split('.');
+                let value = this.translations[this.currentLang];
+
+                if (!value) {
+                    this.log(`ERROR: No translations for ${this.currentLang}`);
+                    return key;
+                }
+
+                for (const k of keys) {
+                    if (value && typeof value === 'object' && k in value) {
+                        value = value[k];
+                    } else {
+                        this.log(`ERROR: Key not found: ${key}`);
+                        return key;
+                    }
+                }
+
+                return value;
+            },
+
+            applyTranslations() {
+                this.log(`Applying translations for: ${this.currentLang}`);
+                const elements = document.querySelectorAll('[data-i18n]');
+                this.log(`Found ${elements.length} elements with data-i18n`);
+
+                elements.forEach((element) => {
+                    const key = element.getAttribute('data-i18n');
+                    const translation = this.t(key);
+                    element.textContent = translation;
+                    this.log(`Translated ${key} = ${translation}`);
+                });
+            },
+
+            setupButtons() {
+                const buttons = document.querySelectorAll('.lang-btn');
+                buttons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const lang = btn.getAttribute('data-lang');
+                        this.changeLanguage(lang);
+                    });
+
+                    if (btn.getAttribute('data-lang') === this.currentLang) {
+                        btn.classList.add('active');
+                    }
+                });
+            },
+
+            changeLanguage(lang) {
+                this.log(`Changing language to: ${lang}`);
+                this.currentLang = lang;
+
+                // Update active button
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-lang') === lang) {
+                        btn.classList.add('active');
+                    }
+                });
+
+                this.applyTranslations();
+            }
+        };
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            TestI18n.init();
+        });
+    </script>
+</body>
+</html>

@@ -11,4 +11,9 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Dương Spa - All scripts initialized');
+
+    // Initialize i18n system
+    if (typeof I18n !== 'undefined') {
+        I18n.init();
+    }
 });

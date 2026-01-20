@@ -9,21 +9,53 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <!-- Language Selection Modal -->
+    <div id="language-modal" class="language-modal">
+        <div class="language-modal-content">
+            <h2>Chọn Ngôn Ngữ / Select Language / 언어 선택</h2>
+            <p>Vui lòng chọn ngôn ngữ để tiếp tục<br>Please select a language to continue<br>계속하려면 언어를 선택하십시오</p>
+            <div class="language-options">
+                <button class="language-option" data-lang="vi">
+                    <span class="lang-flag">🇻🇳</span>
+                    <span class="lang-name">Tiếng Việt</span>
+                    <span class="lang-subtitle">Vietnamese</span>
+                </button>
+                <button class="language-option" data-lang="en">
+                    <span class="lang-flag">🇬🇧</span>
+                    <span class="lang-name">English</span>
+                    <span class="lang-subtitle">English</span>
+                </button>
+                <button class="language-option" data-lang="ko">
+                    <span class="lang-flag">🇰🇷</span>
+                    <span class="lang-name">한국어</span>
+                    <span class="lang-subtitle">Korean</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <nav class="navbar">
             <div class="container">
                 <div class="logo">🌿 Dương Spa</div>
                 <ul class="nav-menu">
-                    <li><a href="#home">Trang Chủ</a></li>
-                    <li><a href="#services">Dịch Vụ</a></li>
-                    <li><a href="#home-service">Massage Tại Nhà</a></li>
-                    <li><a href="#pricing">Bảng Giá</a></li>
-                    <li><a href="#contact">Liên Hệ</a></li>
+                    <li><a href="#home" data-i18n="nav.home">Trang Chủ</a></li>
+                    <li><a href="#services" data-i18n="nav.services">Dịch Vụ</a></li>
+                    <li><a href="#home-service" data-i18n="nav.homeService">Massage Tại Nhà</a></li>
+                    <li><a href="#pricing" data-i18n="nav.pricing">Bảng Giá</a></li>
+                    <li><a href="#contact" data-i18n="nav.contact">Liên Hệ</a></li>
                 </ul>
-                <a href="tel:0796636585" class="btn-call">
-                    📞 0796 636 585
-                </a>
+                <div class="nav-actions">
+                    <div class="language-selector">
+                        <button class="lang-btn" data-lang="vi" title="Tiếng Việt">VI</button>
+                        <button class="lang-btn" data-lang="en" title="English">EN</button>
+                        <button class="lang-btn" data-lang="ko" title="한국어">KO</button>
+                    </div>
+                    <a href="tel:0796636585" class="btn-call" data-i18n="nav.callButton">
+                        📞 0796 636 585
+                    </a>
+                </div>
             </div>
         </nav>
     </header>
@@ -32,14 +64,14 @@
     <section id="home" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title">Dương Spa</h1>
-            <p class="hero-subtitle">Trị Liệu Mệt Mỏi & Xương Khớp</p>
-            <p class="hero-description">
+            <h1 class="hero-title" data-i18n="hero.title">Dương Spa</h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">Trị Liệu Mệt Mỏi & Xương Khớp</p>
+            <p class="hero-description" data-i18n="hero.description">
                 Liệu trình chăm sóc – thư giãn – phục hồi sức khỏe
             </p>
             <div class="hero-buttons">
-                <a href="#pricing" class="btn btn-primary">Xem Bảng Giá</a>
-                <a href="tel:0796636585" class="btn btn-secondary">Đặt Lịch Ngay</a>
+                <a href="#pricing" class="btn btn-primary" data-i18n="hero.viewPricing">Xem Bảng Giá</a>
+                <a href="tel:0796636585" class="btn btn-secondary" data-i18n="hero.bookNow">Đặt Lịch Ngay</a>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -51,16 +83,16 @@
     <section class="about">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Về Dương Spa</h2>
+                <h2 class="section-title" data-i18n="about.title">Về Dương Spa</h2>
                 <div class="title-divider"></div>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p>
+                    <p data-i18n="about.paragraph1">
                         Dương Spa chuyên cung cấp các dịch vụ massage trị liệu chuyên sâu,
                         giúp giảm mệt mỏi, đau nhức xương khớp và phục hồi sức khỏe toàn diện.
                     </p>
-                    <p>
+                    <p data-i18n="about.paragraph2">
                         Với đội ngũ kỹ thuật viên giàu kinh nghiệm, chúng tôi cam kết mang đến
                         trải nghiệm thư giãn tuyệt vời và hiệu quả trị liệu cao nhất cho quý khách.
                     </p>
@@ -68,18 +100,18 @@
                 <div class="about-features">
                     <div class="feature-card">
                         <div class="feature-icon">💆</div>
-                        <h3>Kỹ Thuật Viên Chuyên Nghiệp</h3>
-                        <p>Đội ngũ được đào tạo bài bản</p>
+                        <h3 data-i18n="about.feature1Title">Kỹ Thuật Viên Chuyên Nghiệp</h3>
+                        <p data-i18n="about.feature1Desc">Đội ngũ được đào tạo bài bản</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🌿</div>
-                        <h3>Thảo Dược Thiên Nhiên</h3>
-                        <p>100% nguyên liệu tự nhiên</p>
+                        <h3 data-i18n="about.feature2Title">Thảo Dược Thiên Nhiên</h3>
+                        <p data-i18n="about.feature2Desc">100% nguyên liệu tự nhiên</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">✨</div>
-                        <h3>Không Gian Sang Trọng</h3>
-                        <p>Thư giãn tối đa, riêng tư</p>
+                        <h3 data-i18n="about.feature3Title">Không Gian Sang Trọng</h3>
+                        <p data-i18n="about.feature3Desc">Thư giãn tối đa, riêng tư</p>
                     </div>
                 </div>
             </div>
@@ -90,7 +122,7 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Dịch Vụ Nổi Bật</h2>
+                <h2 class="section-title" data-i18n="services.title">Dịch Vụ Nổi Bật</h2>
                 <div class="title-divider"></div>
             </div>
             <div class="services-grid">
@@ -101,8 +133,8 @@
                         </div>
                     </div>
                     <div class="service-content">
-                        <h3>Massage Trị Liệu</h3>
-                        <p>Chuyên xử lý đau nhức cơ xương khớp, bấm huyệt, day giãn cơ</p>
+                        <h3 data-i18n="services.service1Title">Massage Trị Liệu</h3>
+                        <p data-i18n="services.service1Desc">Chuyên xử lý đau nhức cơ xương khớp, bấm huyệt, day giãn cơ</p>
                     </div>
                 </div>
                 <div class="service-card">
@@ -112,8 +144,8 @@
                         </div>
                     </div>
                     <div class="service-content">
-                        <h3>Massage Bấm Huyệt</h3>
-                        <p>Tác động huyệt đạo, lưu thông khí huyết, giảm mất ngủ, stress</p>
+                        <h3 data-i18n="services.service2Title">Massage Bấm Huyệt</h3>
+                        <p data-i18n="services.service2Desc">Tác động huyệt đạo, lưu thông khí huyết, giảm mất ngủ, stress</p>
                     </div>
                 </div>
                 <div class="service-card">
@@ -123,8 +155,8 @@
                         </div>
                     </div>
                     <div class="service-content">
-                        <h3>Massage Giãn Cơ Sâu</h3>
-                        <p>Deep tissue, giải phóng cơ cứng, phù hợp vận động viên</p>
+                        <h3 data-i18n="services.service3Title">Massage Giãn Cơ Sâu</h3>
+                        <p data-i18n="services.service3Desc">Deep tissue, giải phóng cơ cứng, phù hợp vận động viên</p>
                     </div>
                 </div>
                 <div class="service-card">
@@ -134,8 +166,8 @@
                         </div>
                     </div>
                     <div class="service-content">
-                        <h3>Massage Toàn Thân Thư Giãn</h3>
-                        <p>Thư giãn toàn diện, cải thiện giấc ngủ, giảm căng thẳng</p>
+                        <h3 data-i18n="services.service4Title">Massage Toàn Thân Thư Giãn</h3>
+                        <p data-i18n="services.service4Desc">Thư giãn toàn diện, cải thiện giấc ngủ, giảm căng thẳng</p>
                     </div>
                 </div>
                 <div class="service-card">
@@ -145,8 +177,8 @@
                         </div>
                     </div>
                     <div class="service-content">
-                        <h3>Massage Cổ Vai Gáy Chuyên Sâu</h3>
-                        <p>Giải quyết tê bì tay, đau đầu, mỏi vai - dân văn phòng</p>
+                        <h3 data-i18n="services.service5Title">Massage Cổ Vai Gáy Chuyên Sâu</h3>
+                        <p data-i18n="services.service5Desc">Giải quyết tê bì tay, đau đầu, mỏi vai - dân văn phòng</p>
                     </div>
                 </div>
                 <div class="service-card">
@@ -156,8 +188,8 @@
                         </div>
                     </div>
                     <div class="service-content">
-                        <h3>Massage Chân - Bấm Huyệt Bàn Chân</h3>
-                        <p>Giảm phù nề, lưu thông máu, phù hợp người đi đứng nhiều</p>
+                        <h3 data-i18n="services.service6Title">Massage Chân - Bấm Huyệt Bàn Chân</h3>
+                        <p data-i18n="services.service6Desc">Giảm phù nề, lưu thông máu, phù hợp người đi đứng nhiều</p>
                     </div>
                 </div>
             </div>
@@ -168,80 +200,80 @@
     <section id="home-service" class="home-service">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">💆‍♀️ Massage Trị Liệu Tại Nhà</h2>
+                <h2 class="section-title" data-i18n="homeService.title">💆‍♀️ Massage Trị Liệu Tại Nhà</h2>
                 <div class="title-divider"></div>
-                <p class="section-subtitle">Chuyên sâu, làm kỹ - Hỗ trợ đau lưng, cổ vai gáy, thần kinh tọa, tê bì tay chân, mất ngủ</p>
+                <p class="section-subtitle" data-i18n="homeService.subtitle">Chuyên sâu, làm kỹ - Hỗ trợ đau lưng, cổ vai gáy, thần kinh tọa, tê bì tay chân, mất ngủ</p>
             </div>
 
             <div class="home-service-content">
                 <div class="home-service-description">
-                    <h3>🏠 Về Dịch Vụ Massage Tại Nhà</h3>
+                    <h3 data-i18n="homeService.aboutTitle">🏠 Về Dịch Vụ Massage Tại Nhà</h3>
                     <ul class="feature-list">
-                        <li>✅ Trị liệu bằng tay nghề + day bấm huyệt + giãn cơ</li>
-                        <li>✅ Làm chậm – đúng kỹ thuật – không làm qua loa</li>
-                        <li>✅ Phù hợp khách cần trị liệu thật sự, khách trung niên, người làm việc nặng</li>
-                        <li>✅ Phục vụ khách nước ngoài</li>
-                        <li>⏱ Nhận số lượng khách giới hạn mỗi ngày để đảm bảo chất lượng</li>
+                        <li data-i18n="homeService.feature1">✅ Trị liệu bằng tay nghề + day bấm huyệt + giãn cơ</li>
+                        <li data-i18n="homeService.feature2">✅ Làm chậm – đúng kỹ thuật – không làm qua loa</li>
+                        <li data-i18n="homeService.feature3">✅ Phù hợp khách cần trị liệu thật sự, khách trung niên, người làm việc nặng</li>
+                        <li data-i18n="homeService.feature4">✅ Phục vụ khách nước ngoài</li>
+                        <li data-i18n="homeService.feature5">⏱ Nhận số lượng khách giới hạn mỗi ngày để đảm bảo chất lượng</li>
                     </ul>
 
                     <div class="home-service-pricing-table">
-                        <h3>💰 Bảng Giá Massage Tại Nhà</h3>
+                        <h3 data-i18n="homeService.pricingTitle">💰 Bảng Giá Massage Tại Nhà</h3>
                         <table class="pricing-table">
                             <thead>
                                 <tr>
-                                    <th>Thời Gian</th>
-                                    <th>Giá</th>
+                                    <th data-i18n="homeService.tableTime">Thời Gian</th>
+                                    <th data-i18n="homeService.tablePrice">Giá</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>60 phút</td>
-                                    <td><strong>500.000đ</strong></td>
+                                    <td data-i18n="homeService.time60">60 phút</td>
+                                    <td><strong data-i18n="homeService.price60">500.000đ</strong></td>
                                 </tr>
                                 <tr>
-                                    <td>90 phút</td>
-                                    <td><strong>700.000đ</strong></td>
+                                    <td data-i18n="homeService.time90">90 phút</td>
+                                    <td><strong data-i18n="homeService.price90">700.000đ</strong></td>
                                 </tr>
                                 <tr>
-                                    <td>120 phút</td>
-                                    <td><strong>900.000đ</strong></td>
+                                    <td data-i18n="homeService.time120">120 phút</td>
+                                    <td><strong data-i18n="homeService.price120">900.000đ</strong></td>
                                 </tr>
                             </tbody>
                         </table>
 
                         <div class="home-service-benefits">
-                            <h4>🎁 Tặng miễn phí:</h4>
+                            <h4 data-i18n="homeService.benefitsTitle">🎁 Tặng miễn phí:</h4>
                             <ul>
-                                <li>✔ Chạy điện sinh học</li>
-                                <li>✔ Chườm nóng / thảo dược</li>
-                                <li>✔ Tư vấn tình trạng cơ – xương – giấc ngủ</li>
+                                <li data-i18n="homeService.benefit1">✔ Chạy điện sinh học</li>
+                                <li data-i18n="homeService.benefit2">✔ Chườm nóng / thảo dược</li>
+                                <li data-i18n="homeService.benefit3">✔ Tư vấn tình trạng cơ – xương – giấc ngủ</li>
                             </ul>
-                            <p class="price-note">📌 Giá đã bao gồm công di chuyển trong nội thành</p>
-                            <p class="important-note">💬 <strong>Lưu ý:</strong> Massage trị liệu hao sức – vui lòng đặt lịch trước</p>
+                            <p class="price-note" data-i18n="homeService.priceNote">📌 Giá đã bao gồm công di chuyển trong nội thành</p>
+                            <p class="important-note" data-i18n="homeService.importantNote">💬 <strong>Lưu ý:</strong> Massage trị liệu hao sức – vui lòng đặt lịch trước</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="booking-guide">
-                    <h3>📱 Hướng Dẫn Đặt Lịch</h3>
+                    <h3 data-i18n="homeService.bookingTitle">📱 Hướng Dẫn Đặt Lịch</h3>
                     <div class="guide-box">
-                        <h4>Khi khách hỏi giá:</h4>
+                        <h4 data-i18n="homeService.guideTitle">Khi khách hỏi giá:</h4>
                         <div class="sample-response">
-                            <p><em>"Dạ em chuyên massage trị liệu tại nhà, làm kỹ và đúng thời gian.</em></p>
-                            <p><em>Hiện giá 90 phút là 700.000đ, em có tặng chạy điện sinh học miễn phí.</em></p>
-                            <p><em>Anh/chị đang đau vùng nào để em chuẩn bị cho phù hợp ạ?"</em></p>
+                            <p><em data-i18n="homeService.sampleResponse1">"Dạ em chuyên massage trị liệu tại nhà, làm kỹ và đúng thời gian.</em></p>
+                            <p><em data-i18n="homeService.sampleResponse2">Hiện giá 90 phút là 700.000đ, em có tặng chạy điện sinh học miễn phí.</em></p>
+                            <p><em data-i18n="homeService.sampleResponse3">Anh/chị đang đau vùng nào để em chuẩn bị cho phù hợp ạ?"</em></p>
                         </div>
                         <div class="guide-tip">
-                            <strong>👉 Lợi ích:</strong>
+                            <strong data-i18n="homeService.benefitLabel">👉 Lợi ích:</strong>
                             <ul>
-                                <li>• Khách đã nói về tình trạng → ít hủy đơn</li>
-                                <li>• Nắm thông tin trước khi đi</li>
-                                <li>• Thể hiện sự chuyên nghiệp</li>
+                                <li data-i18n="homeService.benefitItem1">• Khách đã nói về tình trạng → ít hủy đơn</li>
+                                <li data-i18n="homeService.benefitItem2">• Nắm thông tin trước khi đi</li>
+                                <li data-i18n="homeService.benefitItem3">• Thể hiện sự chuyên nghiệp</li>
                             </ul>
                         </div>
                     </div>
                     <div class="cta-booking">
-                        <a href="tel:0796636585" class="btn btn-primary btn-large">
+                        <a href="tel:0796636585" class="btn btn-primary btn-large" data-i18n="homeService.bookingCTA">
                             📞 Đặt Lịch Massage Tại Nhà: 0796 636 585
                         </a>
                     </div>
@@ -254,213 +286,213 @@
     <section id="pricing" class="pricing">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Bảng Giá Dịch Vụ</h2>
+                <h2 class="section-title" data-i18n="pricing.title">Bảng Giá Dịch Vụ</h2>
                 <div class="title-divider"></div>
-                <p class="section-subtitle">Liệu trình chăm sóc – thư giãn – phục hồi sức khỏe</p>
+                <p class="section-subtitle" data-i18n="pricing.subtitle">Liệu trình chăm sóc – thư giãn – phục hồi sức khỏe</p>
             </div>
 
             <div class="pricing-category">
-                <h3 class="category-title">💆‍♀️ Trị Liệu Thư Giãn – Giảm Mệt Mỏi</h3>
+                <h3 class="category-title" data-i18n="pricing.category1">💆‍♀️ Trị Liệu Thư Giãn – Giảm Mệt Mỏi</h3>
                 <div class="price-list">
                     <div class="price-item">
                         <div class="price-info">
-                            <h4>Massage thư giãn toàn thân</h4>
-                            <span class="duration">60 phút</span>
+                            <h4 data-i18n="pricing.service1_1">Massage thư giãn toàn thân</h4>
+                            <span class="duration" data-i18n="pricing.duration1_1">60 phút</span>
                         </div>
-                        <div class="price">350.000đ</div>
+                        <div class="price" data-i18n="pricing.price1_1">350.000đ</div>
                     </div>
                     <div class="price-item">
                         <div class="price-info">
-                            <h4>Massage thư giãn toàn thân</h4>
-                            <span class="duration">90 phút</span>
+                            <h4 data-i18n="pricing.service1_2">Massage thư giãn toàn thân</h4>
+                            <span class="duration" data-i18n="pricing.duration1_2">90 phút</span>
                         </div>
-                        <div class="price">500.000đ</div>
+                        <div class="price" data-i18n="pricing.price1_2">500.000đ</div>
                     </div>
                     <div class="price-item">
                         <div class="price-info">
-                            <h4>Massage cổ vai gáy – đầu</h4>
-                            <span class="duration">45 phút</span>
+                            <h4 data-i18n="pricing.service1_3">Massage cổ vai gáy – đầu</h4>
+                            <span class="duration" data-i18n="pricing.duration1_3">45 phút</span>
                         </div>
-                        <div class="price">280.000đ</div>
+                        <div class="price" data-i18n="pricing.price1_3">280.000đ</div>
                     </div>
                     <div class="price-item">
                         <div class="price-info">
-                            <h4>Massage chân – lưu thông khí huyết</h4>
-                            <span class="duration">45 phút</span>
+                            <h4 data-i18n="pricing.service1_4">Massage chân – lưu thông khí huyết</h4>
+                            <span class="duration" data-i18n="pricing.duration1_4">45 phút</span>
                         </div>
-                        <div class="price">250.000đ</div>
+                        <div class="price" data-i18n="pricing.price1_4">250.000đ</div>
                     </div>
                 </div>
             </div>
 
             <div class="pricing-category">
-                <h3 class="category-title">🦴 Trị Liệu Xương Khớp – Giảm Đau Chuyên Sâu</h3>
+                <h3 class="category-title" data-i18n="pricing.category2">🦴 Trị Liệu Xương Khớp – Giảm Đau Chuyên Sâu</h3>
                 <div class="price-list">
                     <div class="price-item">
                         <div class="price-info">
-                            <h4>Massage Đau Lưng – Thần Kinh Tọa</h4>
-                            <p class="combo-detail">👉 Giảm đau lưng, mỏi hông, tê chân, đi lại nhẹ nhàng hơn</p>
-                            <span class="duration">60-90 phút</span>
+                            <h4 data-i18n="pricing.service2_1">Massage Đau Lưng – Thần Kinh Tọa</h4>
+                            <p class="combo-detail" data-i18n="pricing.detail2_1">👉 Giảm đau lưng, mỏi hông, tê chân, đi lại nhẹ nhàng hơn</p>
+                            <span class="duration" data-i18n="pricing.duration2_1">60-90 phút</span>
                         </div>
                         <div class="price-group">
-                            <div class="price">420.000đ<span class="price-unit">/buổi</span></div>
-                            <div class="price-package">Gói 10 buổi: 3.900.000đ</div>
+                            <div class="price"><span data-i18n="pricing.price2_1">420.000đ</span><span class="price-unit" data-i18n="pricing.unit2_1">/buổi</span></div>
+                            <div class="price-package" data-i18n="pricing.package2_1">Gói 10 buổi: 3.900.000đ</div>
                         </div>
                     </div>
                     <div class="price-item featured">
                         <div class="price-info">
-                            <h4>Massage Thoát Vị Đĩa Đệm</h4>
-                            <p class="combo-detail">👉 Thư giãn cơ sâu, giảm đau, hỗ trợ vận động tốt hơn</p>
-                            <span class="duration">90 phút</span>
+                            <h4 data-i18n="pricing.service2_2">Massage Thoát Vị Đĩa Đệm</h4>
+                            <p class="combo-detail" data-i18n="pricing.detail2_2">👉 Thư giãn cơ sâu, giảm đau, hỗ trợ vận động tốt hơn</p>
+                            <span class="duration" data-i18n="pricing.duration2_2">90 phút</span>
                         </div>
                         <div class="price-group">
-                            <div class="price">480.000đ<span class="price-unit">/buổi</span></div>
-                            <div class="price-package">Gói 10 buổi: 4.500.000đ</div>
+                            <div class="price"><span data-i18n="pricing.price2_2">480.000đ</span><span class="price-unit" data-i18n="pricing.unit2_2">/buổi</span></div>
+                            <div class="price-package" data-i18n="pricing.package2_2">Gói 10 buổi: 4.500.000đ</div>
                         </div>
                     </div>
                     <div class="price-item">
                         <div class="price-info">
-                            <h4>Massage Tê Tay Chân – Nhức Mỏi</h4>
-                            <p class="combo-detail">👉 Cải thiện tuần hoàn, giảm tê bì, nhẹ nhàng hơn</p>
-                            <span class="duration">60 phút</span>
+                            <h4 data-i18n="pricing.service2_3">Massage Tê Tay Chân – Nhức Mỏi</h4>
+                            <p class="combo-detail" data-i18n="pricing.detail2_3">👉 Cải thiện tuần hoàn, giảm tê bì, nhẹ nhàng hơn</p>
+                            <span class="duration" data-i18n="pricing.duration2_3">60 phút</span>
                         </div>
                         <div class="price-group">
-                            <div class="price">350.000đ<span class="price-unit">/buổi</span></div>
-                            <div class="price-package">Gói 10 buổi: 3.200.000đ</div>
+                            <div class="price"><span data-i18n="pricing.price2_3">350.000đ</span><span class="price-unit" data-i18n="pricing.unit2_3">/buổi</span></div>
+                            <div class="price-package" data-i18n="pricing.package2_3">Gói 10 buổi: 3.200.000đ</div>
                         </div>
                     </div>
                     <div class="price-item">
                         <div class="price-info">
-                            <h4>Massage Đau Vai Gáy – Đau Đầu</h4>
-                            <p class="combo-detail">👉 Giảm đau vai gáy, cổ cứng, đau đầu do căng thẳng</p>
-                            <span class="duration">60 phút</span>
+                            <h4 data-i18n="pricing.service2_4">Massage Đau Vai Gáy – Đau Đầu</h4>
+                            <p class="combo-detail" data-i18n="pricing.detail2_4">👉 Giảm đau vai gáy, cổ cứng, đau đầu do căng thẳng</p>
+                            <span class="duration" data-i18n="pricing.duration2_4">60 phút</span>
                         </div>
                         <div class="price-group">
-                            <div class="price">330.000đ<span class="price-unit">/buổi</span></div>
-                            <div class="price-package">Gói 10 buổi: 3.000.000đ</div>
+                            <div class="price"><span data-i18n="pricing.price2_4">330.000đ</span><span class="price-unit" data-i18n="pricing.unit2_4">/buổi</span></div>
+                            <div class="price-package" data-i18n="pricing.package2_4">Gói 10 buổi: 3.000.000đ</div>
                         </div>
                     </div>
                     <div class="price-item">
                         <div class="price-info">
-                            <h4>Massage Mất Ngủ – Căng Thẳng</h4>
-                            <p class="combo-detail">👉 Thư giãn sâu, cải thiện giấc ngủ, giảm stress</p>
-                            <span class="duration">60 phút</span>
+                            <h4 data-i18n="pricing.service2_5">Massage Mất Ngủ – Căng Thẳng</h4>
+                            <p class="combo-detail" data-i18n="pricing.detail2_5">👉 Thư giãn sâu, cải thiện giấc ngủ, giảm stress</p>
+                            <span class="duration" data-i18n="pricing.duration2_5">60 phút</span>
                         </div>
                         <div class="price-group">
-                            <div class="price">350.000đ<span class="price-unit">/buổi</span></div>
-                            <div class="price-package">Gói 10 buổi: 3.300.000đ</div>
+                            <div class="price"><span data-i18n="pricing.price2_5">350.000đ</span><span class="price-unit" data-i18n="pricing.unit2_5">/buổi</span></div>
+                            <div class="price-package" data-i18n="pricing.package2_5">Gói 10 buổi: 3.300.000đ</div>
                         </div>
                     </div>
                 </div>
-                <div class="category-note">
+                <div class="category-note" data-i18n="pricing.categoryNote2">
                     🎁 <strong>Ưu đãi đặc biệt:</strong> Miễn phí chạy điện sinh học trong toàn bộ liệu trình – không phát sinh chi phí
                 </div>
             </div>
 
             <div class="pricing-category">
-                <h3 class="category-title">🔥 Trị Liệu Chuyên Sâu (Đá Nóng – Thảo Dược)</h3>
+                <h3 class="category-title" data-i18n="pricing.category3">🔥 Trị Liệu Chuyên Sâu (Đá Nóng – Thảo Dược)</h3>
                 <div class="price-list">
                     <div class="price-item">
                         <div class="price-info">
-                            <h4>Massage đá nóng toàn thân</h4>
-                            <span class="duration">75 phút</span>
+                            <h4 data-i18n="pricing.service3_1">Massage đá nóng toàn thân</h4>
+                            <span class="duration" data-i18n="pricing.duration3_1">75 phút</span>
                         </div>
-                        <div class="price">600.000đ</div>
+                        <div class="price" data-i18n="pricing.price3_1">600.000đ</div>
                     </div>
                     <div class="price-item">
                         <div class="price-info">
-                            <h4>Trị liệu thảo dược – đả thông kinh lạc</h4>
-                            <span class="duration">90 phút</span>
+                            <h4 data-i18n="pricing.service3_2">Trị liệu thảo dược – đả thông kinh lạc</h4>
+                            <span class="duration" data-i18n="pricing.duration3_2">90 phút</span>
                         </div>
-                        <div class="price">700.000đ</div>
+                        <div class="price" data-i18n="pricing.price3_2">700.000đ</div>
                     </div>
                     <div class="price-item">
                         <div class="price-info">
-                            <h4>Xông hơi thảo dược + massage thư giãn</h4>
-                            <span class="duration">90 phút</span>
+                            <h4 data-i18n="pricing.service3_3">Xông hơi thảo dược + massage thư giãn</h4>
+                            <span class="duration" data-i18n="pricing.duration3_3">90 phút</span>
                         </div>
-                        <div class="price">650.000đ</div>
+                        <div class="price" data-i18n="pricing.price3_3">650.000đ</div>
                     </div>
                 </div>
             </div>
 
             <div class="pricing-category">
-                <h3 class="category-title">🌸 Combo Dịch Vụ Thư Giãn</h3>
+                <h3 class="category-title" data-i18n="pricing.category4">🌸 Combo Dịch Vụ Thư Giãn</h3>
                 <div class="price-list">
                     <div class="price-item">
                         <div class="price-info">
-                            <h4>Combo Thư Giãn Cơ Bản</h4>
-                            <p class="combo-detail">Massage chân – tay + Gội đầu thư giãn + Vai gáy + Ráy tai</p>
-                            <span class="duration">60 phút</span>
+                            <h4 data-i18n="pricing.combo4_1">Combo Thư Giãn Cơ Bản</h4>
+                            <p class="combo-detail" data-i18n="pricing.detail4_1">Massage chân – tay + Gội đầu thư giãn + Vai gáy + Ráy tai</p>
+                            <span class="duration" data-i18n="pricing.duration4_1">60 phút</span>
                         </div>
-                        <div class="price">199.000đ</div>
+                        <div class="price" data-i18n="pricing.price4_1">199.000đ</div>
                     </div>
                     <div class="price-item">
                         <div class="price-info">
-                            <h4>Combo Thư Giãn Toàn Diện</h4>
-                            <p class="combo-detail">Massage chân – tay + Gội đầu dưỡng sinh + Vai gáy + Ráy tai + Massage mặt</p>
-                            <span class="duration">75 phút</span>
+                            <h4 data-i18n="pricing.combo4_2">Combo Thư Giãn Toàn Diện</h4>
+                            <p class="combo-detail" data-i18n="pricing.detail4_2">Massage chân – tay + Gội đầu dưỡng sinh + Vai gáy + Ráy tai + Massage mặt</p>
+                            <span class="duration" data-i18n="pricing.duration4_2">75 phút</span>
                         </div>
-                        <div class="price">249.000đ</div>
+                        <div class="price" data-i18n="pricing.price4_2">249.000đ</div>
                     </div>
                     <div class="price-item">
                         <div class="price-info">
-                            <h4>Combo Chăm Sóc Da & Thư Giãn</h4>
-                            <p class="combo-detail">Massage chân – tay + Gội đầu dưỡng sinh + Vai gáy + Massage mặt + Đắp mặt nạ</p>
-                            <span class="duration">90 phút</span>
+                            <h4 data-i18n="pricing.combo4_3">Combo Chăm Sóc Da & Thư Giãn</h4>
+                            <p class="combo-detail" data-i18n="pricing.detail4_3">Massage chân – tay + Gội đầu dưỡng sinh + Vai gáy + Massage mặt + Đắp mặt nạ</p>
+                            <span class="duration" data-i18n="pricing.duration4_3">90 phút</span>
                         </div>
-                        <div class="price">299.000đ</div>
+                        <div class="price" data-i18n="pricing.price4_3">299.000đ</div>
                     </div>
                     <div class="price-item">
                         <div class="price-info">
-                            <h4>Combo Bấm Huyệt Chuyên Sâu</h4>
-                            <p class="combo-detail">Bấm chân – tay + Massage vai gáy + Gội đầu thư giãn</p>
-                            <span class="duration">75 phút</span>
+                            <h4 data-i18n="pricing.combo4_4">Combo Bấm Huyệt Chuyên Sâu</h4>
+                            <p class="combo-detail" data-i18n="pricing.detail4_4">Bấm chân – tay + Massage vai gáy + Gội đầu thư giãn</p>
+                            <span class="duration" data-i18n="pricing.duration4_4">75 phút</span>
                         </div>
-                        <div class="price">269.000đ</div>
+                        <div class="price" data-i18n="pricing.price4_4">269.000đ</div>
                     </div>
                     <div class="price-item featured">
                         <div class="price-info">
-                            <h4>Combo VIP Thư Giãn Toàn Thân</h4>
-                            <p class="combo-detail">Massage chân – tay + Bấm huyệt + Gội đầu dưỡng sinh + Vai gáy + Ráy tai + Massage mặt + Đắp mặt nạ</p>
-                            <span class="duration">120 phút</span>
+                            <h4 data-i18n="pricing.combo4_5">Combo VIP Thư Giãn Toàn Thân</h4>
+                            <p class="combo-detail" data-i18n="pricing.detail4_5">Massage chân – tay + Bấm huyệt + Gội đầu dưỡng sinh + Vai gáy + Ráy tai + Massage mặt + Đắp mặt nạ</p>
+                            <span class="duration" data-i18n="pricing.duration4_5">120 phút</span>
                         </div>
-                        <div class="price">399.000đ</div>
+                        <div class="price" data-i18n="pricing.price4_5">399.000đ</div>
                     </div>
                 </div>
             </div>
 
             <div class="pricing-category highlight">
-                <h3 class="category-title">🌼 Gói Liệu Trình & Ưu Đãi</h3>
+                <h3 class="category-title" data-i18n="pricing.category5">🌼 Gói Liệu Trình & Ưu Đãi</h3>
                 <div class="package-grid">
                     <div class="package-card">
-                        <div class="package-badge">Tiết kiệm</div>
-                        <h4>Gói 5 buổi</h4>
-                        <p>Massage trị liệu (60 phút)</p>
-                        <div class="package-price">1.800.000đ</div>
-                        <p class="package-note">Trung bình: 360.000đ/buổi</p>
+                        <div class="package-badge" data-i18n="pricing.package5_1Badge">Tiết kiệm</div>
+                        <h4 data-i18n="pricing.package5_1Title">Gói 5 buổi</h4>
+                        <p data-i18n="pricing.package5_1Desc">Massage trị liệu (60 phút)</p>
+                        <div class="package-price" data-i18n="pricing.package5_1Price">1.800.000đ</div>
+                        <p class="package-note" data-i18n="pricing.package5_1Note">Trung bình: 360.000đ/buổi</p>
                     </div>
                     <div class="package-card popular">
-                        <div class="package-badge">Phổ biến</div>
-                        <h4>Mua 5 tặng 1</h4>
-                        <p>Áp dụng cho tất cả combo</p>
-                        <div class="package-price">Ưu đãi</div>
-                        <p class="package-note">Dành cho khách thân thiết</p>
+                        <div class="package-badge" data-i18n="pricing.package5_2Badge">Phổ biến</div>
+                        <h4 data-i18n="pricing.package5_2Title">Mua 5 tặng 1</h4>
+                        <p data-i18n="pricing.package5_2Desc">Áp dụng cho tất cả combo</p>
+                        <div class="package-price" data-i18n="pricing.package5_2Price">Ưu đãi</div>
+                        <p class="package-note" data-i18n="pricing.package5_2Note">Dành cho khách thân thiết</p>
                     </div>
                 </div>
                 <div class="promotion-list">
                     <div class="promotion-item">
                         <span class="promo-icon">🎁</span>
                         <div class="promo-content">
-                            <h4>Giảm 10%</h4>
-                            <p>Cho khách làm từ 2 combo trở lên</p>
+                            <h4 data-i18n="pricing.promo1Title">Giảm 10%</h4>
+                            <p data-i18n="pricing.promo1Desc">Cho khách làm từ 2 combo trở lên</p>
                         </div>
                     </div>
                     <div class="promotion-item">
                         <span class="promo-icon">✨</span>
                         <div class="promo-content">
-                            <h4>Tặng dịch vụ</h4>
-                            <p>Đắp mặt nạ hoặc ráy tai cho khách thân thiết</p>
+                            <h4 data-i18n="pricing.promo2Title">Tặng dịch vụ</h4>
+                            <p data-i18n="pricing.promo2Desc">Đắp mặt nạ hoặc ráy tai cho khách thân thiết</p>
                         </div>
                     </div>
                 </div>
@@ -472,7 +504,7 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Liên Hệ Đặt Lịch</h2>
+                <h2 class="section-title" data-i18n="contact.title">Liên Hệ Đặt Lịch</h2>
                 <div class="title-divider"></div>
             </div>
             <div class="contact-content">
@@ -480,29 +512,29 @@
                     <div class="contact-item">
                         <div class="contact-icon">📞</div>
                         <div class="contact-details">
-                            <h4>Điện Thoại</h4>
-                            <a href="tel:0796636585">0796 636 585</a>
+                            <h4 data-i18n="contact.phoneTitle">Điện Thoại</h4>
+                            <a href="tel:0796636585" data-i18n="contact.phoneNumber">0796 636 585</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">⏰</div>
                         <div class="contact-details">
-                            <h4>Giờ Mở Cửa</h4>
-                            <p>08:00 - 22:00 (Hàng ngày)</p>
+                            <h4 data-i18n="contact.hoursTitle">Giờ Mở Cửa</h4>
+                            <p data-i18n="contact.hoursText">08:00 - 22:00 (Hàng ngày)</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">💬</div>
                         <div class="contact-details">
-                            <h4>Tư Vấn</h4>
-                            <p>Miễn phí qua điện thoại</p>
+                            <h4 data-i18n="contact.consultTitle">Tư Vấn</h4>
+                            <p data-i18n="contact.consultText">Miễn phí qua điện thoại</p>
                         </div>
                     </div>
                 </div>
                 <div class="contact-cta">
-                    <h3>Đặt Lịch Ngay Hôm Nay</h3>
-                    <p>Trải nghiệm dịch vụ spa trị liệu chuyên nghiệp</p>
-                    <a href="tel:0796636585" class="btn btn-large">
+                    <h3 data-i18n="contact.ctaTitle">Đặt Lịch Ngay Hôm Nay</h3>
+                    <p data-i18n="contact.ctaDesc">Trải nghiệm dịch vụ spa trị liệu chuyên nghiệp</p>
+                    <a href="tel:0796636585" class="btn btn-large" data-i18n="contact.ctaButton">
                         📞 Gọi Ngay: 0796 636 585
                     </a>
                 </div>
@@ -515,30 +547,32 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <h3>🌿 Dương Spa</h3>
-                    <p>Chăm sóc sức khỏe – Thư giãn tối đa</p>
+                    <h3 data-i18n="footer.brandName">🌿 Dương Spa</h3>
+                    <p data-i18n="footer.brandDesc">Chăm sóc sức khỏe – Thư giãn tối đa</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Dịch Vụ</h4>
+                    <h4 data-i18n="footer.servicesTitle">Dịch Vụ</h4>
                     <ul>
-                        <li><a href="#services">Các loại massage</a></li>
-                        <li><a href="#home-service">Massage tại nhà</a></li>
-                        <li><a href="#pricing">Bảng giá dịch vụ</a></li>
+                        <li><a href="#services" data-i18n="footer.servicesLink1">Các loại massage</a></li>
+                        <li><a href="#home-service" data-i18n="footer.servicesLink2">Massage tại nhà</a></li>
+                        <li><a href="#pricing" data-i18n="footer.servicesLink3">Bảng giá dịch vụ</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
-                    <h4>Liên Hệ</h4>
-                    <p>📞 0796 636 585</p>
-                    <p>⏰ 08:00 - 22:00</p>
+                    <h4 data-i18n="footer.contactTitle">Liên Hệ</h4>
+                    <p data-i18n="footer.contactPhone">📞 0796 636 585</p>
+                    <p data-i18n="footer.contactHours">⏰ 08:00 - 22:00</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Dương Spa. All rights reserved.</p>
+                <p data-i18n="footer.copyright">&copy; 2024 Dương Spa. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Modular JavaScript - Easy to maintain -->
+    <script src="js/translations-full.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/smooth-scroll.js"></script>
     <script src="js/animations.js"></script>
     <script src="js/interactions.js"></script>
