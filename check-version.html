@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Files Version</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            background: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #8B7355, #A0826D);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #8B7355;
+        }
+        .file-check {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            margin: 5px 0;
+            background: #f9f9f9;
+            border-radius: 3px;
+        }
+        .status {
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .status.ok { background: #d4edda; color: #155724; }
+        .status.fail { background: #f8d7da; color: #721c24; }
+        .status.loading { background: #fff3cd; color: #856404; }
+        button {
+            background: #8B7355;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #6d5a43;
+        }
+        .info {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196F3;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #c7254e;
+        }
+        .command {
+            background: #2d2d2d;
+            color: #00ff00;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 Kiểm Tra Version Files</h1>
+        <p>Tool này kiểm tra xem các file trên VPS có phải là version mới nhất không</p>
+    </div>
+
+    <div class="info">
+        <strong>📌 Version hiện tại:</strong> <code>1768918335</code><br>
+        <strong>📅 Ngày:</strong> <span id="current-date"></span>
+    </div>
+
+    <div class="section">
+        <h3>1. Kiểm Tra Files</h3>
+        <button onclick="checkFiles()">🔄 Kiểm Tra Tất Cả Files</button>
+        <button onclick="location.reload()">♻️ Reload Trang</button>
+        <div id="results" style="margin-top: 15px;"></div>
+    </div>
+
+    <div class="section">
+        <h3>2. Clear Cache Trình Duyệt</h3>
+        <p><strong>Chrome/Edge:</strong></p>
+        <ul>
+            <li>Nhấn <code>Ctrl + Shift + Delete</code></li>
+            <li>Chọn "Cached images and files"</li>
+            <li>Click "Clear data"</li>
+        </ul>
+        <p><strong>Hoặc Hard Refresh:</strong></p>
+        <ul>
+            <li>Windows: <code>Ctrl + Shift + R</code> hoặc <code>Ctrl + F5</code></li>
+            <li>Mac: <code>Cmd + Shift + R</code></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>3. Clear Cache VPS (Apache)</h3>
+        <p>Chạy các lệnh này trên VPS:</p>
+        <div class="command">
+# Clear Apache cache (nếu có mod_cache)<br>
+sudo service apache2 restart<br>
+<br>
+# Hoặc clear PHP opcache (nếu có)<br>
+sudo service php-fpm restart
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>4. Kiểm Tra .htaccess</h3>
+        <p>File <code>.htaccess</code> phải có nội dung sau:</p>
+        <div class="command">
+&lt;FilesMatch "\.(css|js)$"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Header set Cache-Control "max-age=0, no-cache"<br>
+&lt;/FilesMatch&gt;
+        </div>
+        <button onclick="checkHtaccess()">Kiểm Tra .htaccess</button>
+        <div id="htaccess-result"></div>
+    </div>
+
+    <script>
+        // Show current date
+        document.getElementById('current-date').textContent = new Date().toLocaleString('vi-VN');
+
+        const files = [
+            'css/main.css',
+            'css/language.css',
+            'css/responsive.css',
+            'js/i18n.js',
+            'js/translations-full.js',
+            'js/main.js'
+        ];
+
+        async function checkFiles() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<p>Đang kiểm tra...</p>';
+
+            let html = '';
+            let allOk = true;
+
+            for (const file of files) {
+                html += `<div class="file-check">
+                    <span>${file}</span>
+                    <span class="status loading" id="status-${file.replace(/[/.]/g, '-')}">Checking...</span>
+                </div>`;
+            }
+
+            resultsDiv.innerHTML = html;
+
+            for (const file of files) {
+                const statusId = `status-${file.replace(/[/.]/g, '-')}`;
+                try {
+                    // Add timestamp to force fresh check
+                    const response = await fetch(`${file}?check=${Date.now()}`);
+                    const statusEl = document.getElementById(statusId);
+
+                    if (response.ok) {
+                        const content = await response.text();
+                        const size = (content.length / 1024).toFixed(2);
+                        statusEl.textContent = `✅ OK (${size} KB)`;
+                        statusEl.className = 'status ok';
+                    } else {
+                        statusEl.textContent = `❌ Error ${response.status}`;
+                        statusEl.className = 'status fail';
+                        allOk = false;
+                    }
+                } catch (error) {
+                    const statusEl = document.getElementById(statusId);
+                    statusEl.textContent = `❌ Failed: ${error.message}`;
+                    statusEl.className = 'status fail';
+                    allOk = false;
+                }
+            }
+
+            if (allOk) {
+                resultsDiv.innerHTML += '<p style="color: green; font-weight: bold; margin-top: 15px;">✅ Tất cả files đều OK!</p>';
+                resultsDiv.innerHTML += '<p>Nếu vẫn chưa đúng, hãy hard refresh: <code>Ctrl + Shift + R</code></p>';
+            } else {
+                resultsDiv.innerHTML += '<p style="color: red; font-weight: bold; margin-top: 15px;">❌ Có file bị lỗi! Kiểm tra lại việc upload.</p>';
+            }
+        }
+
+        async function checkHtaccess() {
+            const resultDiv = document.getElementById('htaccess-result');
+            resultDiv.innerHTML = '<p>Đang kiểm tra...</p>';
+
+            try {
+                const response = await fetch('.htaccess?check=' + Date.now());
+                if (response.ok) {
+                    resultDiv.innerHTML = '<p style="color: green;">✅ File .htaccess tồn tại</p>';
+                } else {
+                    resultDiv.innerHTML = '<p style="color: red;">❌ File .htaccess không tồn tại hoặc không truy cập được</p>';
+                }
+            } catch (error) {
+                resultDiv.innerHTML = '<p style="color: orange;">⚠️ Không thể kiểm tra .htaccess (có thể bị block)</p>';
+            }
+        }
+
+        // Auto check on load
+        window.addEventListener('load', () => {
+            setTimeout(checkFiles, 500);
+        });
+    </script>
+</body>
+</html>

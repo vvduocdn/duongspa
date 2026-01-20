@@ -2,17 +2,101 @@
 
 @media (max-width: 768px) {
     /* Navigation */
+    .navbar .container {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 22px;
+        flex: 1;
+        white-space: nowrap;
+    }
+
     .nav-menu {
         display: none;
     }
 
+    .nav-actions {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .language-dropdown {
+        flex-shrink: 0;
+        z-index: 1001;
+        position: relative;
+    }
+
+    .lang-current {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.8rem;
+        min-width: 55px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .lang-arrow {
+        font-size: 0.55rem;
+    }
+
+    .lang-dropdown-menu {
+        min-width: 160px;
+        right: 0;
+        left: auto;
+        z-index: 1002;
+        position: absolute;
+    }
+
+    .lang-option {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn-call {
+        padding: 8px 16px;
+        font-size: 14px;
+        flex: 1;
+        text-align: center;
+    }
+
     /* Hero Section */
+    .hero {
+        height: calc(100vh - 60px);
+        min-height: 500px;
+        background-position: center center;
+        margin-top: 60px;
+    }
+
     .hero-title {
-        font-size: 42px;
+        font-size: 38px;
+        margin-bottom: 15px;
     }
 
     .hero-subtitle {
-        font-size: 24px;
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .hero-content {
+        padding: 0 25px;
+    }
+
+    .hero-buttons {
+        gap: 15px;
+    }
+
+    .hero-buttons .btn {
+        padding: 12px 30px;
+        font-size: 15px;
     }
 
     /* Section Titles */
@@ -80,17 +164,101 @@
 }
 
 @media (max-width: 480px) {
+    /* Navigation - Extra small screens */
+    .logo {
+        font-size: 20px;
+        white-space: nowrap;
+    }
+
+    .nav-actions {
+        gap: 0.4rem;
+    }
+
+    .lang-current {
+        padding: 0.45rem 0.6rem;
+        font-size: 0.75rem;
+        min-width: 50px;
+        gap: 0.3rem;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .lang-arrow {
+        font-size: 0.5rem;
+    }
+
+    .lang-dropdown-menu {
+        min-width: 150px;
+        right: 0;
+        left: auto;
+        z-index: 1002;
+    }
+
+    .lang-option {
+        padding: 0.75rem 0.9rem;
+        font-size: 0.85rem;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+        min-height: 44px;
+    }
+
+    .btn-call {
+        padding: 6px 12px;
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
     /* Hero */
+    .hero {
+        height: calc(100vh - 80px);
+        min-height: 450px;
+        margin-top: 80px;
+        background-position: center center;
+        background-size: cover;
+    }
+
     .hero-title {
-        font-size: 32px;
+        font-size: 28px;
+        margin-bottom: 12px;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+        line-height: 1.2;
     }
 
     .hero-subtitle {
-        font-size: 20px;
+        font-size: 18px;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        letter-spacing: 1px;
     }
 
     .hero-description {
-        font-size: 16px;
+        font-size: 14px;
+        margin-bottom: 25px;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        line-height: 1.4;
+    }
+
+    .hero-content {
+        padding: 0 20px;
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 14px 25px;
+        font-size: 14px;
+    }
+
+    .scroll-indicator {
+        bottom: 20px;
+        font-size: 32px;
     }
 
     /* Buttons */

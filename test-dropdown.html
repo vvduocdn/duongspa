@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Dropdown</title>
+    <link rel="stylesheet" href="css/main.css?v=2.0">
+    <style>
+        body {
+            padding: 50px;
+            font-family: Arial, sans-serif;
+        }
+        .test-info {
+            background: #f0f0f0;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        .test-info h2 {
+            margin-top: 0;
+            color: #8B7355;
+        }
+        .status {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .status.pass {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status.fail {
+            background: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h2>🧪 Test Language Dropdown</h2>
+        <p><strong>Mục đích:</strong> Kiểm tra dropdown có ẩn đúng cách không</p>
+        <div id="test-results"></div>
+    </div>
+
+    <h3>Language Dropdown Test:</h3>
+    <div class="language-dropdown" id="test-dropdown">
+        <button class="lang-current" id="lang-current">
+            <span class="lang-current-text">VI</span>
+            <span class="lang-arrow">▼</span>
+        </button>
+        <div class="lang-dropdown-menu" id="lang-dropdown-menu">
+            <button class="lang-option" data-lang="vi">🇻🇳 Tiếng Việt</button>
+            <button class="lang-option" data-lang="en">🇬🇧 English</button>
+            <button class="lang-option" data-lang="ko">🇰🇷 한국어</button>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <button onclick="testDropdown()" style="padding: 10px 20px; cursor: pointer;">
+            Test Click Dropdown
+        </button>
+    </div>
+
+    <script>
+        // Test on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const menu = document.getElementById('lang-dropdown-menu');
+            const results = document.getElementById('test-results');
+
+            setTimeout(() => {
+                const isHidden = window.getComputedStyle(menu).display === 'none';
+
+                if (isHidden) {
+                    results.innerHTML = '<div class="status pass">✅ PASS: Dropdown menu ẨN đúng cách!</div>';
+                } else {
+                    results.innerHTML = '<div class="status fail">❌ FAIL: Dropdown menu HIỆN ra (không đúng!)</div>';
+                    results.innerHTML += '<p><strong>Debug info:</strong></p>';
+                    results.innerHTML += `<pre>display: ${window.getComputedStyle(menu).display}</pre>`;
+                    results.innerHTML += `<pre>visibility: ${window.getComputedStyle(menu).visibility}</pre>`;
+                    results.innerHTML += `<pre>opacity: ${window.getComputedStyle(menu).opacity}</pre>`;
+                }
+            }, 100);
+        });
+
+        // Test click
+        function testDropdown() {
+            const dropdown = document.getElementById('test-dropdown');
+            const menu = document.getElementById('lang-dropdown-menu');
+            const currentBtn = document.getElementById('lang-current');
+
+            // Toggle
+            currentBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('open');
+
+                const isOpen = dropdown.classList.contains('open');
+                alert(isOpen ? 'Dropdown MỞ' : 'Dropdown ĐÓNG');
+            });
+
+            // Close when click outside
+            document.addEventListener('click', (e) => {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('open');
+                }
+            });
+
+            // Trigger click
+            currentBtn.click();
+        }
+    </script>
+</body>
+</html>

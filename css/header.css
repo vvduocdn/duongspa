@@ -27,6 +27,7 @@
     font-size: 28px;
     font-weight: 700;
     color: var(--primary-color);
+    white-space: nowrap;
 }
 
 .nav-menu {
@@ -59,4 +60,11 @@
 .btn-call:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(139, 115, 85, 0.3);
+}
+
+/* Navigation Actions Container */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }

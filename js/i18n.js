@@ -93,7 +93,11 @@ const I18n = {
                 }, 300);
 
                 // Setup language selector after modal is closed
-                this.setupLanguageSelector();
+                setTimeout(() => {
+                    this.setupLanguageSelector();
+                    // Force update the current language display
+                    this.updateLanguageSelectorState();
+                }, 400);
             });
         });
     },
@@ -219,14 +223,62 @@ const I18n = {
      * Set up language selector event listeners
      */
     setupLanguageSelector() {
-        const langButtons = document.querySelectorAll('.lang-btn');
+        const dropdown = document.querySelector('.language-dropdown');
+        const currentBtn = document.getElementById('lang-current');
+        const dropdownMenu = document.getElementById('lang-dropdown-menu');
+        const langOptions = document.querySelectorAll('.lang-option');
 
-        langButtons.forEach((button) => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                const lang = button.getAttribute('data-lang');
-                this.changeLanguage(lang);
-            });
+        if (!currentBtn || !dropdownMenu) return;
+
+        // Toggle dropdown - support both click and touch
+        const toggleDropdown = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const isOpen = dropdown.classList.contains('open');
+
+            console.log('Dropdown toggle triggered, isOpen:', isOpen);
+
+            if (isOpen) {
+                // Close
+                dropdown.classList.remove('open');
+                dropdownMenu.style.display = 'none';
+                console.log('Dropdown closed');
+            } else {
+                // Open
+                dropdown.classList.add('open');
+                dropdownMenu.style.display = 'block';
+                console.log('Dropdown opened');
+            }
+        };
+
+        currentBtn.addEventListener('click', toggleDropdown);
+        currentBtn.addEventListener('touchstart', toggleDropdown, { passive: false });
+
+        // Close dropdown when clicking/touching outside
+        const closeDropdown = (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+                dropdownMenu.style.display = 'none';
+            }
+        };
+
+        document.addEventListener('click', closeDropdown);
+        document.addEventListener('touchstart', closeDropdown);
+
+        // Handle language selection - support both click and touch
+        const selectLanguage = (option) => (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const lang = option.getAttribute('data-lang');
+            console.log('Language selected:', lang);
+            this.changeLanguage(lang);
+            dropdown.classList.remove('open');
+            dropdownMenu.style.display = 'none';
+        };
+
+        langOptions.forEach((option) => {
+            option.addEventListener('click', selectLanguage(option));
+            option.addEventListener('touchstart', selectLanguage(option), { passive: false });
         });
 
         // Set initial active state
@@ -237,14 +289,33 @@ const I18n = {
      * Update language selector active state
      */
     updateLanguageSelectorState() {
-        const langButtons = document.querySelectorAll('.lang-btn');
+        const currentText = document.querySelector('.lang-current-text');
+        const langOptions = document.querySelectorAll('.lang-option');
 
-        langButtons.forEach((button) => {
-            const lang = button.getAttribute('data-lang');
+        console.log('Updating language selector to:', this.currentLang);
+        console.log('Current text element:', currentText);
+
+        // Update current button text
+        if (currentText) {
+            const langMap = {
+                'vi': 'VI',
+                'en': 'EN',
+                'ko': 'KO'
+            };
+            const newText = langMap[this.currentLang] || 'VI';
+            currentText.textContent = newText;
+            console.log('Updated text to:', newText);
+        } else {
+            console.error('Cannot find .lang-current-text element!');
+        }
+
+        // Update active state in dropdown
+        langOptions.forEach((option) => {
+            const lang = option.getAttribute('data-lang');
             if (lang === this.currentLang) {
-                button.classList.add('active');
+                option.classList.add('active');
             } else {
-                button.classList.remove('active');
+                option.classList.remove('active');
             }
         });
     },

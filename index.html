@@ -6,7 +6,7 @@
     <title>Dương Spa - Trị Liệu Mệt Mỏi & Xương Khớp</title>
 
     <!-- Modular CSS - Easy to maintain -->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css?v=1768918335">
 </head>
 <body>
     <!-- Language Selection Modal -->
@@ -47,10 +47,16 @@
                     <li><a href="#contact" data-i18n="nav.contact">Liên Hệ</a></li>
                 </ul>
                 <div class="nav-actions">
-                    <div class="language-selector">
-                        <button class="lang-btn" data-lang="vi" title="Tiếng Việt">VI</button>
-                        <button class="lang-btn" data-lang="en" title="English">EN</button>
-                        <button class="lang-btn" data-lang="ko" title="한국어">KO</button>
+                    <div class="language-dropdown">
+                        <button class="lang-current" id="lang-current">
+                            <span class="lang-current-text">VI</span>
+                            <span class="lang-arrow">▼</span>
+                        </button>
+                        <div class="lang-dropdown-menu" id="lang-dropdown-menu" style="display: none;">
+                            <button class="lang-option" data-lang="vi">🇻🇳 Tiếng Việt</button>
+                            <button class="lang-option" data-lang="en">🇬🇧 English</button>
+                            <button class="lang-option" data-lang="ko">🇰🇷 한국어</button>
+                        </div>
                     </div>
                     <a href="tel:0796636585" class="btn-call" data-i18n="nav.callButton">
                         📞 0796 636 585
@@ -254,29 +260,10 @@
                     </div>
                 </div>
 
-                <div class="booking-guide">
-                    <h3 data-i18n="homeService.bookingTitle">📱 Hướng Dẫn Đặt Lịch</h3>
-                    <div class="guide-box">
-                        <h4 data-i18n="homeService.guideTitle">Khi khách hỏi giá:</h4>
-                        <div class="sample-response">
-                            <p><em data-i18n="homeService.sampleResponse1">"Dạ em chuyên massage trị liệu tại nhà, làm kỹ và đúng thời gian.</em></p>
-                            <p><em data-i18n="homeService.sampleResponse2">Hiện giá 90 phút là 700.000đ, em có tặng chạy điện sinh học miễn phí.</em></p>
-                            <p><em data-i18n="homeService.sampleResponse3">Anh/chị đang đau vùng nào để em chuẩn bị cho phù hợp ạ?"</em></p>
-                        </div>
-                        <div class="guide-tip">
-                            <strong data-i18n="homeService.benefitLabel">👉 Lợi ích:</strong>
-                            <ul>
-                                <li data-i18n="homeService.benefitItem1">• Khách đã nói về tình trạng → ít hủy đơn</li>
-                                <li data-i18n="homeService.benefitItem2">• Nắm thông tin trước khi đi</li>
-                                <li data-i18n="homeService.benefitItem3">• Thể hiện sự chuyên nghiệp</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="cta-booking">
-                        <a href="tel:0796636585" class="btn btn-primary btn-large" data-i18n="homeService.bookingCTA">
-                            📞 Đặt Lịch Massage Tại Nhà: 0796 636 585
-                        </a>
-                    </div>
+                <div class="cta-booking">
+                    <a href="tel:0796636585" class="btn btn-primary btn-large" data-i18n="homeService.bookingCTA">
+                        📞 Đặt Lịch Massage Tại Nhà: 0796 636 585
+                    </a>
                 </div>
             </div>
         </div>
@@ -571,11 +558,11 @@
     </footer>
 
     <!-- Modular JavaScript - Easy to maintain -->
-    <script src="js/translations-full.js"></script>
-    <script src="js/i18n.js"></script>
-    <script src="js/smooth-scroll.js"></script>
-    <script src="js/animations.js"></script>
-    <script src="js/interactions.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/translations-full.js?v=1768918335"></script>
+    <script src="js/i18n.js?v=1768918335"></script>
+    <script src="js/smooth-scroll.js?v=1768918335"></script>
+    <script src="js/animations.js?v=1768918335"></script>
+    <script src="js/interactions.js?v=1768918335"></script>
+    <script src="js/main.js?v=1768918335"></script>
 </body>
 </html>
