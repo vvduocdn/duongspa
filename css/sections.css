@@ -128,7 +128,7 @@
 /* Pricing Section */
 .pricing {
     padding: var(--section-padding) 0;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: linear-gradient(135deg, var(--warm-cream) 0%, var(--light-secondary) 100%);
 }
 
 .pricing-category {
@@ -364,7 +364,7 @@
 /* Contact Section */
 .contact {
     padding: var(--section-padding) 0;
-    background: var(--white);
+    background: var(--light-secondary);
 }
 
 .contact-content {
@@ -441,7 +441,7 @@
 /* Home Service Section - Massage Tại Nhà */
 .home-service {
     padding: var(--section-padding) 0;
-    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    background: linear-gradient(135deg, var(--soft-beige) 0%, var(--light-color) 100%);
 }
 
 .home-service-content {
