@@ -1,0 +1,13 @@
+/* Main CSS File - Import all stylesheets */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+/* Import CSS modules in order */
+@import 'variables.css';
+@import 'base.css';
+@import 'animations.css';
+@import 'header.css';
+@import 'hero.css';
+@import 'sections.css';
+@import 'footer.css';
+@import 'responsive.css';

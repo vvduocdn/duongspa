@@ -1,0 +1,37 @@
+/* CSS Variables - Colors, Fonts, Spacing */
+
+:root {
+    /* Colors */
+    --primary-color: #8B7355;
+    --secondary-color: #C9A581;
+    --accent-color: #7FB069;
+    --dark-color: #2C3531;
+    --light-color: #F4F1E8;
+    --white: #FFFFFF;
+    --text-dark: #333333;
+    --text-light: #666666;
+
+    /* Fonts */
+    --font-primary: 'Montserrat', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+
+    /* Spacing */
+    --section-padding: 100px;
+    --container-padding: 20px;
+
+    /* Border Radius */
+    --radius-small: 8px;
+    --radius-medium: 12px;
+    --radius-large: 20px;
+    --radius-round: 50%;
+
+    /* Shadows */
+    --shadow-small: 0 2px 10px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 5px 20px rgba(0, 0, 0, 0.1);
+    --shadow-large: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}

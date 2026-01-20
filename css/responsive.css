@@ -1,0 +1,149 @@
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    /* Navigation */
+    .nav-menu {
+        display: none;
+    }
+
+    /* Hero Section */
+    .hero-title {
+        font-size: 42px;
+    }
+
+    .hero-subtitle {
+        font-size: 24px;
+    }
+
+    /* Section Titles */
+    .section-title {
+        font-size: 36px;
+    }
+
+    /* Pricing */
+    .pricing-category {
+        padding: 25px;
+    }
+
+    .price-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .price-group {
+        align-items: center;
+        width: 100%;
+    }
+
+    .price-package {
+        font-size: 13px;
+    }
+
+    .category-note {
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    .category-title {
+        font-size: 22px;
+    }
+
+    /* Contact */
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-cta {
+        padding: 30px 20px;
+    }
+
+    .contact-cta h3 {
+        font-size: 24px;
+    }
+
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    /* Package Cards */
+    .package-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Promotion List */
+    .promotion-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Hero */
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 20px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+
+    /* Section Padding */
+    .about,
+    .services,
+    .pricing,
+    .contact {
+        padding: 60px 0;
+    }
+
+    /* Section Titles */
+    .section-title {
+        font-size: 28px;
+    }
+
+    /* Price Items */
+    .price-info h4 {
+        font-size: 18px;
+    }
+
+    .price {
+        font-size: 20px;
+    }
+
+    /* Contact */
+    .contact-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+    }
+}
+
+/* Tablet Landscape */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        max-width: 960px;
+    }
+
+    .services-grid,
+    .about-features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large Screens */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}

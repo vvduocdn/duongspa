@@ -1,0 +1,24 @@
+{
+  "spa": {
+    "name": "Dương Spa",
+    "phone": "0796636585",
+    "email": "",
+    "address": "",
+    "workingHours": "08:00 - 22:00 (Hàng ngày)"
+  },
+  "colors": {
+    "primary": "#8B7355",
+    "secondary": "#C9A581",
+    "accent": "#7FB069"
+  },
+  "social": {
+    "facebook": "",
+    "instagram": "",
+    "zalo": "0796636585"
+  },
+  "features": {
+    "enableBooking": false,
+    "enableChat": false,
+    "enableReviews": false
+  }
+}
