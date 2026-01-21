@@ -57,6 +57,166 @@
     color: var(--text-light);
 }
 
+/* Team Section - Employee Slideshow */
+.team-section {
+    padding: var(--section-padding) 0;
+    background: linear-gradient(135deg, var(--warm-cream) 0%, var(--soft-beige) 100%);
+}
+
+.team-slideshow {
+    max-width: 900px;
+    margin: 40px auto 0;
+    position: relative;
+}
+
+.slideshow-container {
+    position: relative;
+    background: var(--white);
+    border-radius: var(--radius-large);
+    overflow: hidden;
+    box-shadow: var(--shadow-large);
+}
+
+.slide {
+    display: none;
+    position: relative;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: var(--white);
+    padding: 40px 30px 30px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Navigation arrows */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 30px;
+    font-weight: bold;
+    background: rgba(139, 115, 85, 0.7);
+    border-radius: var(--radius-round);
+    transition: all var(--transition-normal);
+    user-select: none;
+    z-index: 10;
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.prev:hover, .next:hover {
+    background: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Slideshow dots */
+.slideshow-dots {
+    text-align: center;
+    padding: 20px 0 0;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 8px;
+    background-color: rgba(139, 115, 85, 0.3);
+    border-radius: var(--radius-round);
+    display: inline-block;
+    transition: all var(--transition-normal);
+}
+
+.dot:hover {
+    background-color: rgba(139, 115, 85, 0.6);
+}
+
+.dot.active {
+    background-color: var(--primary-color);
+    width: 40px;
+    border-radius: 10px;
+}
+
+/* Fade animation */
+.fade {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive for Team Section */
+@media (max-width: 768px) {
+    .slide img {
+        height: 400px;
+    }
+
+    .slide-caption {
+        font-size: 16px;
+        padding: 30px 20px 20px;
+    }
+
+    .prev, .next {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    .dot {
+        height: 12px;
+        width: 12px;
+        margin: 0 5px;
+    }
+
+    .dot.active {
+        width: 30px;
+    }
+}
+
 /* Services Section */
 .services {
     padding: var(--section-padding) 0;

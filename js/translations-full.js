@@ -37,6 +37,15 @@ TRANSLATIONS.vi =
     "feature3Title": "Không Gian Sang Trọng",
     "feature3Desc": "Thư giãn tối đa, riêng tư"
   },
+  "team": {
+    "title": "Đội Ngũ Nhân Viên",
+    "subtitle": "Kỹ thuật viên chuyên nghiệp, tận tâm",
+    "caption1": "Kỹ thuật viên massage chuyên nghiệp",
+    "caption2": "Đội ngũ trẻ trung, nhiệt tình",
+    "caption3": "Được đào tạo bài bản, kỹ thuật cao",
+    "caption4": "Chuyên gia trị liệu giàu kinh nghiệm",
+    "caption5": "Phục vụ tận tình, chuyên nghiệp"
+  },
   "services": {
     "title": "Dịch Vụ Nổi Bật",
     "service1Title": "Massage Trị Liệu",
@@ -147,7 +156,7 @@ TRANSLATIONS.vi =
     "price3_3": "650.000đ",
     "category4": "🌸 Combo Dịch Vụ Thư Giãn",
     "combo4_1": "Combo Thư Giãn Cơ Bản",
-    "detail4_1": "Massage chân – tay + Gội đầu thư giãn + Vai gáy + Ráy tai",
+    "detail4_1": "Massage chân – tay + Gội đầu thư giãn",
     "duration4_1": "60 phút",
     "price4_1": "199.000đ",
     "combo4_2": "Combo Thư Giãn Toàn Diện",
@@ -240,6 +249,15 @@ TRANSLATIONS.en =
     "feature2Desc": "100% natural ingredients",
     "feature3Title": "Luxurious Space",
     "feature3Desc": "Maximum relaxation, privacy"
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "Professional and dedicated therapists",
+    "caption1": "Professional massage therapists",
+    "caption2": "Young and enthusiastic team",
+    "caption3": "Well-trained with high technical skills",
+    "caption4": "Experienced therapy specialists",
+    "caption5": "Dedicated and professional service"
   },
   "services": {
     "title": "Featured Services",
@@ -351,7 +369,7 @@ TRANSLATIONS.en =
     "price3_3": "650,000đ",
     "category4": "🌸 Relaxation Combo Services",
     "combo4_1": "Basic Relaxation Combo",
-    "detail4_1": "Foot & hand massage + Relaxing hair wash + Shoulders & neck + Ear cleaning",
+    "detail4_1": "Foot & hand massage + Relaxing hair wash",
     "duration4_1": "60 minutes",
     "price4_1": "199,000đ",
     "combo4_2": "Comprehensive Relaxation Combo",
@@ -444,6 +462,15 @@ TRANSLATIONS.ko =
     "feature2Desc": "100% 천연 재료",
     "feature3Title": "고급스러운 공간",
     "feature3Desc": "최대 휴식, 프라이버시"
+  },
+  "team": {
+    "title": "직원 팀",
+    "subtitle": "전문적이고 헌신적인 치료사",
+    "caption1": "전문 마사지 치료사",
+    "caption2": "젊고 열정적인 팀",
+    "caption3": "높은 기술력으로 잘 훈련됨",
+    "caption4": "경험이 풍부한 치료 전문가",
+    "caption5": "헌신적이고 전문적인 서비스"
   },
   "services": {
     "title": "주요 서비스",
@@ -555,7 +582,7 @@ TRANSLATIONS.ko =
     "price3_3": "650,000₫",
     "category4": "🌸 이완 콤보 서비스",
     "combo4_1": "기본 이완 콤보",
-    "detail4_1": "발과 손 마사지 + 이완 헤어 워시 + 어깨와 목 + 귀 청소",
+    "detail4_1": "발과 손 마사지 + 이완 헤어 워시",
     "duration4_1": "60분",
     "price4_1": "199,000₫",
     "combo4_2": "종합 이완 콤보",

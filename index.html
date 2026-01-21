@@ -38,13 +38,13 @@
     <header class="header">
         <nav class="navbar">
             <div class="container">
-                <div class="logo">🌿 Dương Spa</div>
-                <ul class="nav-menu">
-                    <li><a href="#home" data-i18n="nav.home">Trang Chủ</a></li>
-                    <li><a href="#services" data-i18n="nav.services">Dịch Vụ</a></li>
-                    <li><a href="#home-service" data-i18n="nav.homeService">Massage Tại Nhà</a></li>
-                    <li><a href="#pricing" data-i18n="nav.pricing">Bảng Giá</a></li>
-                    <li><a href="#contact" data-i18n="nav.contact">Liên Hệ</a></li>
+                <div class="logo" id="logo-menu-toggle">🌿 Dương Spa</div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home" data-i18n="nav.home" class="nav-link">Trang Chủ</a></li>
+                    <li><a href="#services" data-i18n="nav.services" class="nav-link">Dịch Vụ</a></li>
+                    <li><a href="#home-service" data-i18n="nav.homeService" class="nav-link">Massage Tại Nhà</a></li>
+                    <li><a href="#pricing" data-i18n="nav.pricing" class="nav-link">Bảng Giá</a></li>
+                    <li><a href="#contact" data-i18n="nav.contact" class="nav-link">Liên Hệ</a></li>
                 </ul>
                 <div class="nav-actions">
                     <div class="language-dropdown">
@@ -119,6 +119,54 @@
                         <h3 data-i18n="about.feature3Title">Không Gian Sang Trọng</h3>
                         <p data-i18n="about.feature3Desc">Thư giãn tối đa, riêng tư</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section - Employee Slideshow -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="team.title">Đội Ngũ Nhân Viên</h2>
+                <div class="title-divider"></div>
+                <p class="section-subtitle" data-i18n="team.subtitle">Kỹ thuật viên chuyên nghiệp, tận tâm</p>
+            </div>
+            <div class="team-slideshow">
+                <div class="slideshow-container">
+                    <div class="slide fade">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800" alt="Team member 1">
+                        <div class="slide-caption" data-i18n="team.caption1">Kỹ thuật viên massage chuyên nghiệp</div>
+                    </div>
+                    <div class="slide fade">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800" alt="Team member 2">
+                        <div class="slide-caption" data-i18n="team.caption2">Đội ngũ trẻ trung, nhiệt tình</div>
+                    </div>
+                    <div class="slide fade">
+                        <img src="https://images.unsplash.com/photo-1581403341630-a6e0b9d2d257?w=800" alt="Team member 3">
+                        <div class="slide-caption" data-i18n="team.caption3">Được đào tạo bài bản, kỹ thuật cao</div>
+                    </div>
+                    <div class="slide fade">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800" alt="Team member 4">
+                        <div class="slide-caption" data-i18n="team.caption4">Chuyên gia trị liệu giàu kinh nghiệm</div>
+                    </div>
+                    <div class="slide fade">
+                        <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=800" alt="Team member 5">
+                        <div class="slide-caption" data-i18n="team.caption5">Phục vụ tận tình, chuyên nghiệp</div>
+                    </div>
+
+                    <!-- Navigation arrows -->
+                    <a class="prev" onclick="changeSlide(-1)">❮</a>
+                    <a class="next" onclick="changeSlide(1)">❯</a>
+                </div>
+
+                <!-- Navigation dots -->
+                <div class="slideshow-dots">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
                 </div>
             </div>
         </div>
@@ -409,7 +457,7 @@
                     <div class="price-item">
                         <div class="price-info">
                             <h4 data-i18n="pricing.combo4_1">Combo Thư Giãn Cơ Bản</h4>
-                            <p class="combo-detail" data-i18n="pricing.detail4_1">Massage chân – tay + Gội đầu thư giãn + Vai gáy + Ráy tai</p>
+                            <p class="combo-detail" data-i18n="pricing.detail4_1">Massage chân – tay + Gội đầu thư giãn</p>
                             <span class="duration" data-i18n="pricing.duration4_1">60 phút</span>
                         </div>
                         <div class="price" data-i18n="pricing.price4_1">199.000đ</div>
